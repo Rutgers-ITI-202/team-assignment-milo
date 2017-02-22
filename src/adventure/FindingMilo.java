@@ -11,8 +11,10 @@ public class FindingMilo {
 		
 		if (newGame.equalsIgnoreCase("Yes"))
 		{
-			System.out.println("Welcome to Finding Milo! You are the adventurer named Fuze, searching for Milo the Monkey!" 
-								+ " You will explore a dungeon on your quest to find to him.");
+						System.out.println("Welcome to Finding Milo! You are the adventurer named Fuze, searching for Milo the Monkey!" 
+								+ " You will explore a dungeon on your quest to find to him. \n \n"
+								+ "You find yourself in a room, dimly lit by a small lantern."
+								+ " On the floor in front of you, you see a note.");
 		}
 		
 		else 
