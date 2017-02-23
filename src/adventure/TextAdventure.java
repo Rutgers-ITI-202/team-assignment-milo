@@ -1,8 +1,3 @@
-/*
-This class:
-•	Contains the main method used to start the game.
-•	Talks to the AdventureModel and to the Adventurer classes, as needed.
-*/
 
 package adventure;
 
