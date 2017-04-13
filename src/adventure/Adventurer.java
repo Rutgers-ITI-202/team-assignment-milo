@@ -13,29 +13,51 @@ package adventure;
 
 public class Adventurer {
 
-	private char note; 
-	private char lantern;
-
-	public char note(){ //note in entrance room
-		return note; 
+	private boolean lantern = false;
+	private boolean helpenol = false;
+	private boolean magicBananaDildo = false;
+	private boolean key = false;
+	private boolean mysticalSmokingBanana = false;
+	private boolean giantLeaf = false;
+	public Adventurer(){
 	}
-
-	public char lantern(){ //lantern in entrance room
-		return lantern;
-	}
-
-
-	public void addItemToInv(String name){ // method to add item into inventory
-
-		for (int i = 0; i < inv.length; i++){ // for loop that limits the space of the inventory
-			if (inv[i] == null){
-				inv[i] = name;
-
-				return;// returns item to inventory and repeats the loop if called again.
-			}
+	public void setlantern(boolean lantern) {
+			this.lantern=!this.lantern;
 		}
-	}
+		public boolean getlantern() {
+			return lantern;
+		}
+	public void sethelpenol(boolean sethelpenol) {
+			this.helpenol=!this.helpenol;
+		}
+		public boolean gethelpenol() {
+			return helpenol;
+		}
+	public void setmagicBananaDildo(boolean setmagicBananaDildo) {
+			this.magicBananaDildo=!this.magicBananaDildo;
+		}
+		public boolean getmagicBananaDildo() {
+			return magicBananaDildo;
+		}
+	public void setkey(boolean key) {
+			this.key=!this.key;
+		}
+		public boolean getkey() {
+			return key;
+		}
+	public void setmysticalSmokingBanana(boolean mysticalSmokingBanana) {
+			this.mysticalSmokingBanana=!this.mysticalSmokingBanana;
+		}
+		public boolean getmysticalSmokingBanana() {
+			return mysticalSmokingBanana;
+		}
+	public void setgiantLeaf(boolean giantLeaf) {
+			this.giantLeaf=!this.giantLeaf;
+		}
+		public boolean getgiantLeaf() {
+			return giantLeaf;
+		}
 
-	public static String inv[] = new String[5]; // creates an array named inv that holds 5 items
+	public static String inv[] = new String[6]; // creates an array named inv that holds 5 items
 
 }
