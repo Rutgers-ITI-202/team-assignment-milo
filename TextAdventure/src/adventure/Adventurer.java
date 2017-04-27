@@ -1,4 +1,11 @@
 package adventure;
+/**
+ * Name(s): Peter Lu, Sujay Adkar, Samson Dogbe
+ * Due Date 4/28/2017
+ * ITI 202-05 Object Oriented Programming
+ * Final Project
+ * Description: This class creates adventurer and its inventory.
+ */
 
 import java.util.ArrayList;
 

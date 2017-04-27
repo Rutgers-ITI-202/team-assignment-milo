@@ -1,5 +1,11 @@
 package adventure;
-
+/**
+ * Name(s): Peter Lu, Sujay Adkar, Samson Dogbe
+ * Due Date 4/28/2017
+ * ITI 202-05 Object Oriented Programming
+ * Final Project
+ * Description: This contains the main class which builds the objects needed for the game and allows the user to interact with the game.
+ */
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -21,7 +27,7 @@ public class TextAdventure {
 		AdventureModel item10 = new AdventureModel("Laser Gun", true);
 		AdventureModel item11 = new AdventureModel("Car Keys", true);
 		AdventureModel item12 = new AdventureModel("Fire Stone", true);		
-		
+
 		//Creates all rooms for the game map with their items
 		ArrayList<AdventureModel> mainChamberItems = new ArrayList<AdventureModel>();
 		mainChamberItems.add(item1);
@@ -77,90 +83,110 @@ public class TextAdventure {
 		//Creates the Adventurer Fuze
 		Adventurer Fuze = new Adventurer();
 
-		System.out.println("Welcome to Milo!");
-		System.out.println("Find and collect all items to free King Milo.");
-		System.out.println(gameMap[x][y].getDescription());	
+		try{
+			System.out.println("Welcome to Finding Milo! \n"
+					+ "Find and collect all items to free King Milo.\n"
+					+ "Commands:\n"
+					+ "Movements:\n"
+					+ "n = move north\n"
+					+ "s = move south\n"
+					+ "e = move east\n"
+					+ "w = move west\n"
+					+ "look = gives a description of the room\n"
+					+ "get [item] = type 'get' followed by the name of the item to pick it up\n"
+					+ "inventory = see what items are in your inventory\n"
+					+ "quit = end the game");
+			System.out.println();
+			System.out.println(gameMap[x][y].getDescription());	
 
-		boolean inPlay = true;
-		while(inPlay && Fuze.getNeededItems() < 12)
-		{
-			//Gets user input
-			System.out.print("> ");
-			Scanner in = new Scanner(System.in);
-			String input = in.nextLine();
-			input = input.toLowerCase();
+			boolean game = true;
+			while(game && Fuze.getNeededItems() < 12)
+			{
+				//Gets user input
+				System.out.print("> ");
+				Scanner in = new Scanner(System.in);
+				String input = in.nextLine();
+				input = input.toLowerCase();
 
-			//Commands to move between rooms
-			if (input.equals("w")) {
-				if (y > 0) {
-					y--;
+				//Commands to move between rooms
+				if (input.equals("w")) {
+					if (y > 0) {
+						y--;
+						gameMap[x][y].print();
+					} else {
+						System.out.println("You can't go that way.");
+					}
+				} else if (input.equals("e")) {
+					if (y < gameMap[0].length - 1) {
+						y++;
+						gameMap[x][y].print();
+					} else {
+						System.out.println("You can't go that way.");
+					}
+				} else if (input.equals("n")) {
+					if (x > 0) {
+						x--;
+						gameMap[x][y].print();
+					} else {
+						System.out.println("You can't go that way.");
+					}
+				} else if (input.equals("s")) {
+					if (x < gameMap.length - 1) {
+						x++;
+						gameMap[x][y].print();
+					} else {
+						System.out.println("You can't go that way.");
+					}
+				}
+
+				// Command to look around room
+				else if (input.equals("look")) {
 					gameMap[x][y].print();
+				}
+
+				// Command to get room item
+				else if (input.length() > 4  && input.substring(0, 4).equals("get ")) {
+					if (input.substring(0, input.indexOf(' ')).equals("get")) {
+						if (input.substring(input.indexOf(' ')).length() > 1) {
+							String item = input.substring(input.indexOf(' ') + 1);
+							gameMap[x][y].getItem(gameMap[x][y], item, Fuze);
+						}	
+					}
+				}
+
+				//Command to show player inventory
+				else if (input.equals("i") || input.equals("inv") || input.equals("inventory")) {
+					Fuze.getInventory();
+				}
+
+				// Command to quit the game
+				else if (input.equals("quit")) {
+					System.out.println("Goodbye!");
+					game = false;
+
+					// Any other input is also invalid
 				} else {
-					System.out.println("You can't go that way.");
+					System.out.println("You can't do that.");
 				}
-			} else if (input.equals("e")) {
-				if (y < gameMap[0].length - 1) {
-					y++;
-					gameMap[x][y].print();
-				} else {
-					System.out.println("You can't go that way.");
-				}
-			} else if (input.equals("n")) {
-				if (x > 0) {
-					x--;
-					gameMap[x][y].print();
-				} else {
-					System.out.println("You can't go that way.");
-				}
-			} else if (input.equals("s")) {
-				if (x < gameMap.length - 1) {
-					x++;
-					gameMap[x][y].print();
-				} else {
-					System.out.println("You can't go that way.");
-				}
+
 			}
 
-			// Command to look around room
-			else if (input.equals("look")) {
-				gameMap[x][y].print();
-			}
 
-			// Command to get room item
-			else if (input.length() > 4  && input.substring(0, 4).equals("get ")) {
-				if (input.substring(0, input.indexOf(' ')).equals("get")) {
-					if (input.substring(input.indexOf(' ')).length() > 1) {
-						String item = input.substring(input.indexOf(' ') + 1);
-						gameMap[x][y].getItem(gameMap[x][y], item, Fuze);
-					}	
-				}
-			}
-
-			//Command to show player inventory
-			else if (input.equals("i") || input.equals("inv") || input.equals("inventory")) {
-				Fuze.getInventory();
-			}
-
-			// Command to quit the game
-			else if (input.equals("quit")) {
-				System.out.println("Goodbye!");
-				inPlay = false;
-
-				// Any other input is also invalid
-			} else {
-				System.out.println("You can't do that.");
-			}
+			if(game)
+				System.out.println("Congratulations! You found all the items and found Milo's Cell!\n"
+						+ "	As you and King Milo headed for the extraction point, Drogas One-Eyed attacked you guys.\n"
+						+ "	A furious battle began and you blocked with the shield and striked with the magic banana dildo\n"
+						+ "	With one final blow, you brought Drogas down.\n"
+						+ "	Then you headed back to the concourse, took the Bugatti and sped out of the temple while Gorilla soldiers attacked you two.\n"
+						+ "	Once outside the temple, you and King Milo made it to the extraction point where Banana Party Five was waiting and returned to the Capital, Glistening Platanos to plan\n"
+						+ "	for the invasion of San Gora!");
 		}
 
-		if(inPlay)
-			System.out.println("Congratulations! You found all the items and found Milo's Cell! /n"
-					+ "	As you and King Milo headed for the extraction point, Drogas One-Eyed attacked you guys. /n"
-					+ "	A furious battle began and you blocked with the shield and striked with the magic banana dildo/n"
-					+ "	With one final blow, you brought Drogas down./n"
-					+ "	Then you headed back to the concourse, took the Bugatti and sped out of the temple while Gorilla soldiers attacked you two./n"
-					+ "	Once outside the temple, you and King Milo made it to the extraction point where Rogue Banana was waiting and returned to the Capital, Glistening Platanos to plan/n"
-					+ "	for the invasion of San Gora!");
-	} 
+		catch(ArrayIndexOutOfBoundsException exception){
+			System.out.println("You can't go that way");
+
+		}
+	}
 
 }
 

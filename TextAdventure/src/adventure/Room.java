@@ -1,5 +1,11 @@
 package adventure;
-
+/**
+Name(s): Peter Lu, Sujay Adkar, Samson Dogbe
+Due Date: 04/28/2017
+ITI 202-04 Object Oriented Programming
+Final Project
+Description: This class contains the methods to build the rooms that are in the game map
+*/
 import java.util.ArrayList;
 
 
