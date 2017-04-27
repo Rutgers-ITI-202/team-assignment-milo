@@ -47,7 +47,7 @@ public class TextAdventure {
 
 		ArrayList<AdventureModel> gardenOfEdenItems = new ArrayList<AdventureModel>();
 		gardenOfEdenItems.add(item5);
-		Room gardenOfEden = new Room("Garden of Eden", "You are in the Garden of Eden. The room is filled with lush fruits and tall banana trees. /nIn the center of the room, on top of pedestal with a beam of light shining down, is shillouttee of a large banana.", gardenOfEdenItems);
+		Room gardenOfEden = new Room("Garden of Eden", "You are in the Garden of Eden. The room is filled with lush fruits and tall banana trees.\nIn the center of the room, on top of pedestal with a beam of light shining down, is shillouttee of a large banana.", gardenOfEdenItems);
 
 		ArrayList<AdventureModel> donutPalaceItems = new ArrayList<AdventureModel>();
 		donutPalaceItems.add(item6);
