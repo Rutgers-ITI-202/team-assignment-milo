@@ -1,10 +1,11 @@
 package adventure;
 /**
  * Name(s): Peter Lu, Sujay Adkar, Samson Dogbe
- * Due Date 4/28/2017
+ * Due Date: 4/28/2017
  * ITI 202-05 Object Oriented Programming
  * Final Project
- * Description: This contains the main class which builds the objects needed for the game and allows the user to interact with the game.
+ * @param 	
+ * This contains the main class which builds the objects needed for the game and allows the user to interact with the game.
  */
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -26,7 +27,9 @@ public class TextAdventure {
 		AdventureModel item9 = new AdventureModel("Krispy Kreme Donuts", true);
 		AdventureModel item10 = new AdventureModel("Laser Gun", true);
 		AdventureModel item11 = new AdventureModel("Car Keys", true);
-		AdventureModel item12 = new AdventureModel("Fire Stone", true);		
+		AdventureModel item12 = new AdventureModel("Fire Stone", true);	
+		AdventureModel item13 = new AdventureModel("There is nothing here", true);	
+		AdventureModel item14 = new AdventureModel("There is nothing here", true);	
 
 		//Creates all rooms for the game map with their items
 		ArrayList<AdventureModel> mainChamberItems = new ArrayList<AdventureModel>();
@@ -71,19 +74,29 @@ public class TextAdventure {
 		lavaPitsItems.add(item12);
 		Room lavaPits = new Room("Lava Pits", "You are in the Lava Pits. The room is dark, smokey, loose ground, and there is a volcano. /nIn the center of the volcano there is a cave and in the middle there is stone with a burning ember inside.", lavaPitsItems);
 
+		ArrayList<AdventureModel> emptyRoom1 = new ArrayList<AdventureModel>();
+		emptyRoom1.add(item13);
+		Room empt1 = new Room("Empty","All you see in the room are four walls and a few doors", emptyRoom1);
+		
+		ArrayList<AdventureModel> emptyRoom2 = new ArrayList<AdventureModel>();
+		emptyRoom2.add(item14);
+		Room empt2 = new Room("Empty","All you see in the room are four walls and a few doors", emptyRoom2);
+		
 		//Creates game map
 		Room[][] gameMap= {{lavaPits, spaceStationSix, donutPalace, gardenOfEden},
 				{gvsPharmacy, mainChamber, elderTreeForest, holyBananaSanctuary},
-				{concourse, frostCove}};
+				{concourse, frostCove, empt1, empt2}};
 
 		//Player will start in the Main Chamber
 		int x = 1;
 		int y = 1;
+		int prevX = x; 
+		int prevY = y;
 
 		//Creates the Adventurer Fuze
 		Adventurer Fuze = new Adventurer();
 
-		try{
+		//try{
 			System.out.println("Welcome to Finding Milo! \n"
 					+ "Find and collect all items to free King Milo.\n"
 					+ "Commands:\n"
@@ -182,12 +195,12 @@ public class TextAdventure {
 						+ "	for the invasion of San Gora!");
 		}
 
-		catch(ArrayIndexOutOfBoundsException exception){
-			System.out.println("You can't go that way");
+		//catch(ArrayIndexOutOfBoundsException exception){
+			//System.out.println("You can't go that way");
 
-		}
+		//}
 	}
 
-}
+//}
 
 

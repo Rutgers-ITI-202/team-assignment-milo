@@ -4,7 +4,8 @@ package adventure;
  * Due Date 4/28/2017
  * ITI 202-05 Object Oriented Programming
  * Final Project
- * Description: This contains the main class which builds the objects needed for the game and allows the user to interact with the game.
+ * @param
+ * This contains the main class which builds the objects needed for the game and allows the user to interact with the game.
  */
 public class AdventureModel {
 	
