@@ -9,10 +9,12 @@ package adventure;
  */
 public class AdventureModel {
 	
+	//Creates a constructor
 	private int isNeeded = 0;
 	private boolean needed;
 	String name;
 	
+	//Conditions for adventure model.
 	public AdventureModel(String str, boolean bool){
 		name = str;
 		needed = bool;
@@ -20,6 +22,7 @@ public class AdventureModel {
 			isNeeded++;
 	}
 	
+	//Getters and setters
 	public String getName(){
 		return name;
 	}

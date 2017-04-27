@@ -90,8 +90,8 @@ public class TextAdventure {
 		//Player will start in the Main Chamber
 		int x = 1;
 		int y = 1;
-		int prevX = x; 
-		int prevY = y;
+		//int prevX = x; 
+		//int prevY = y;
 
 		//Creates the Adventurer Fuze
 		Adventurer Fuze = new Adventurer();
